@@ -1,5 +1,11 @@
+body {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 table {
-  width: 100%;
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -11,4 +17,30 @@ thead tr th {
 th,
 td {
   border: 1px solid black;
+}
+
+.action {
+  padding: 0 10px;
+}
+
+.completionCell {
+  text-align: center;
+  width: 50px;
+}
+
+.achievedCell {
+  width: 100px;
+}
+
+.goal {
+  width: 100px;
+}
+
+.net {
+  width: 100px;
+}
+
+#total {
+  padding-right: 10px;
+  text-align: right;
 }

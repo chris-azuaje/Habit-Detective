@@ -9,7 +9,7 @@
   <body>
     <table>
       <caption>
-        A Caption
+        Weekly Habit Tracker
       </caption>
       <thead>
         <tr>
@@ -28,48 +28,48 @@
       </thead>
       <tbody>
         <tr>
-          <th>Upload to Github</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <th class="action">Upload to Github</th>
+          <td class="completionCell row-1"></td>
+          <td class="completionCell row-1"></td>
+          <td class="completionCell row-1"></td>
+          <td class="completionCell row-1"></td>
+          <td class="completionCell row-1"></td>
+          <td class="completionCell row-1"></td>
+          <td class="completionCell row-1"></td>
+          <td class="achievedCell row-1"></td>
+          <td class="goal row-1"><input type="number" min="0" max="7" /></td>
+          <td class="net row-1"></td>
         </tr>
         <tr>
-          <th>Do Homework</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <th class="action">Do Homework</th>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="achievedCell"></td>
+          <td class="goal"><input type="number" min="0" max="7" /></td>
+          <td class="net"></td>
         </tr>
         <tr>
-          <th>Exercise</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <th class="action">Exercise</th>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="completionCell"></td>
+          <td class="achievedCell"></td>
+          <td class="goal"><input type="number" min="0" max="7" /></td>
+          <td class="net"></td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
-          <th colspan="8">TOTAL</th>
+          <th id="total" colspan="8">TOTAL</th>
           <td></td>
           <td></td>
           <td></td>
@@ -77,4 +77,5 @@
       </tfoot>
     </table>
   </body>
+  <script src="script.js"></script>
 </html>
