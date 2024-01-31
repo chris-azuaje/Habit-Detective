@@ -9,62 +9,64 @@
   <body>
     <table>
       <caption>
-        Weekly Habit Tracker
+        <h2>Weekly Habit Tracker</h2>
       </caption>
       <thead>
-        <tr>
-          <th>Behavior/Action</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thur</th>
-          <th>Fri</th>
-          <th>Sat</th>
-          <th>Sun</th>
-          <th>Achieved</th>
-          <th>Goal</th>
-          <th>Net</th>
+        <tr class="header-row">
+          <th class="header">Behavior/Action</th>
+          <th class="header">Mon</th>
+          <th class="header">Tue</th>
+          <th class="header">Wed</th>
+          <th class="header">Thur</th>
+          <th class="header">Fri</th>
+          <th class="header">Sat</th>
+          <th class="header">Sun</th>
+          <th class="header">Achieved</th>
+          <th class="header">Goal</th>
+          <th class="header">Net</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr class="row">
           <th class="action">Upload to Github</th>
-          <td class="completionCell row-1"></td>
-          <td class="completionCell row-1"></td>
-          <td class="completionCell row-1"></td>
-          <td class="completionCell row-1"></td>
-          <td class="completionCell row-1"></td>
-          <td class="completionCell row-1"></td>
-          <td class="completionCell row-1"></td>
-          <td class="achievedCell row-1"></td>
-          <td class="goal row-1"><input type="number" min="0" max="7" /></td>
-          <td class="net row-1"></td>
+          <td class="completion-cell row-1"></td>
+          <td class="completion-cell row-1"></td>
+          <td class="completion-cell row-1"></td>
+          <td class="completion-cell row-1"></td>
+          <td class="completion-cell row-1"></td>
+          <td class="completion-cell row-1"></td>
+          <td class="completion-cell row-1"></td>
+          <td class="achieved-cell row-1"></td>
+          <td class="goal-cell row-1">
+            <input type="number" min="0" max="7" />
+          </td>
+          <td class="net-cell row-1"></td>
         </tr>
         <tr>
           <th class="action">Do Homework</th>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="achievedCell"></td>
-          <td class="goal"><input type="number" min="0" max="7" /></td>
-          <td class="net"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="achieved-cell"></td>
+          <td class="goal-cell"><input type="number" min="0" max="7" /></td>
+          <td class="net-cell"></td>
         </tr>
         <tr>
           <th class="action">Exercise</th>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="completionCell"></td>
-          <td class="achievedCell"></td>
-          <td class="goal"><input type="number" min="0" max="7" /></td>
-          <td class="net"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="completion-cell"></td>
+          <td class="achieved-cell"></td>
+          <td class="goal-cell"><input type="number" min="0" max="7" /></td>
+          <td class="net-cell"></td>
         </tr>
       </tbody>
       <tfoot>
@@ -76,6 +78,13 @@
         </tr>
       </tfoot>
     </table>
+    <footer>
+      <p>
+        Created by
+        <a href="https://chrisazuaje.com/" target="_blank">Chris Azuaje</a>
+      </p>
+    </footer>
   </body>
+
   <script src="script.js"></script>
 </html>

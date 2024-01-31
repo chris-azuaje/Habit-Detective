@@ -1,12 +1,26 @@
-let completionCell = document.querySelectorAll('.completionCell');
-let achievedCell = document.querySelectorAll('.achievedCell');
+let completionCells = document.querySelectorAll('.completion-cell');
 
-completionCell.forEach((e) =>
-  e.addEventListener('click', function () {
-    if (e.textContent === 'X') {
-      e.textContent = '';
-    } else {
-      e.textContent = 'X';
+// Function to update achieved count
+function updateAchievedCount(row) {
+  let achievedCell = row.querySelector('.achieved-cell');
+  let count = 0;
+  completionCells.forEach((cell) => {
+    if (cell.textContent === 'X' && cell.parentElement === row) {
+      count++;
     }
+  });
+  achievedCell.textContent = count;
+}
+
+// Add click event listener to each completion cell
+completionCells.forEach((cell) =>
+  cell.addEventListener('click', function () {
+    if (cell.textContent === 'X') {
+      cell.textContent = '';
+    } else {
+      cell.textContent = 'X';
+    }
+    // Update achieved count when a cell is clicked
+    updateAchievedCount(cell.parentElement);
   })
 );

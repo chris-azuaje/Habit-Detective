@@ -1,6 +1,8 @@
 body {
+  font-family: Arial, Helvetica, sans-serif;
   height: 60vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -23,24 +25,35 @@ td {
   padding: 0 10px;
 }
 
-.completionCell {
+.completion-cell {
   text-align: center;
   width: 50px;
 }
 
-.achievedCell {
+table:hover {
+  cursor: default;
+}
+
+.achieved-cell {
+  text-align: center;
   width: 100px;
 }
 
-.goal {
+.goal-cell {
   width: 100px;
 }
 
-.net {
+.net-cell {
   width: 100px;
 }
 
 #total {
   padding-right: 10px;
   text-align: right;
+}
+
+footer {
+  font-family: monospace;
+  position: absolute;
+  bottom: 0px;
 }
