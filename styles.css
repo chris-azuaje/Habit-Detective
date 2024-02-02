@@ -47,6 +47,23 @@ table:hover {
   width: 100px;
 }
 
+.achieved-total {
+  text-align: center;
+}
+
+.edit-window {
+  position: fixed;
+  background-color: rgb(144, 144, 201);
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.hidden-class {
+  display: none;
+}
+
 #total {
   padding-right: 10px;
   text-align: right;

@@ -12,22 +12,22 @@
         <h2>Weekly Habit Tracker</h2>
       </caption>
       <thead>
-        <tr class="header-row">
-          <th class="header">Behavior/Action</th>
-          <th class="header">Mon</th>
-          <th class="header">Tue</th>
-          <th class="header">Wed</th>
-          <th class="header">Thur</th>
-          <th class="header">Fri</th>
-          <th class="header">Sat</th>
-          <th class="header">Sun</th>
-          <th class="header">Achieved</th>
-          <th class="header">Goal</th>
-          <th class="header">Net</th>
+        <tr>
+          <th>Behavior/Action</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thur</th>
+          <th>Fri</th>
+          <th>Sat</th>
+          <th>Sun</th>
+          <th>Achieved</th>
+          <th>Goal</th>
+          <th>Net</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="row">
+        <tr class="row-1">
           <th class="action">Upload to Github</th>
           <td class="completion-cell row-1"></td>
           <td class="completion-cell row-1"></td>
@@ -36,13 +36,12 @@
           <td class="completion-cell row-1"></td>
           <td class="completion-cell row-1"></td>
           <td class="completion-cell row-1"></td>
-          <td class="achieved-cell row-1"></td>
-          <td class="goal-cell row-1">
-            <input type="number" min="0" max="7" />
-          </td>
+          <td class="achieved-cell row-1">0</td>
+          <td class="goal-cell row-1"></td>
           <td class="net-cell row-1"></td>
+          <td><button class="edit-btn">Edit</button></td>
         </tr>
-        <tr>
+        <tr class="row-2">
           <th class="action">Do Homework</th>
           <td class="completion-cell"></td>
           <td class="completion-cell"></td>
@@ -51,11 +50,12 @@
           <td class="completion-cell"></td>
           <td class="completion-cell"></td>
           <td class="completion-cell"></td>
-          <td class="achieved-cell"></td>
-          <td class="goal-cell"><input type="number" min="0" max="7" /></td>
+          <td class="achieved-cell">0</td>
+          <td class="goal-cell"></td>
           <td class="net-cell"></td>
+          <td><button class="edit-btn">Edit</button></td>
         </tr>
-        <tr>
+        <tr class="row-3">
           <th class="action">Exercise</th>
           <td class="completion-cell"></td>
           <td class="completion-cell"></td>
@@ -64,20 +64,40 @@
           <td class="completion-cell"></td>
           <td class="completion-cell"></td>
           <td class="completion-cell"></td>
-          <td class="achieved-cell"></td>
-          <td class="goal-cell"><input type="number" min="0" max="7" /></td>
+          <td class="achieved-cell">0</td>
+          <td class="goal-cell"></td>
           <td class="net-cell"></td>
+          <td><button class="edit-btn">Edit</button></td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <th id="total" colspan="8">TOTAL</th>
+          <td class="achieved-total"></td>
           <td></td>
           <td></td>
-          <td></td>
+          <td><button id="new-habit-btn">New Habit</button></td>
         </tr>
       </tfoot>
     </table>
+    <div class="edit-window hidden-class">
+      <label for="behavior">Behavior</label>
+      <input type="text" id="behavior" />
+      <label for="goal">Goal</label>
+      <select name="goal" id="goal">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+      <button id="submit-habit-btn">Submit</button>
+      <button id="cancel-modal-btn">Cancel</button>
+      <button id="delete-habit-btn">Delete Habit</button>
+    </div>
     <footer>
       <p>
         Created by
