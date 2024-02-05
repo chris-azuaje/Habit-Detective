@@ -81,21 +81,27 @@
       </tfoot>
     </table>
     <div class="edit-window hidden-class">
-      <label for="behavior">Behavior</label>
-      <input type="text" id="behavior" />
-      <label for="goal">Goal</label>
-      <select name="goal" id="goal">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-      </select>
+      <div class="exit-btn-container">
+        <button id="exit-modal-btn">❌</button>
+      </div>
+      <div class="edit-window-inputs-container">
+        <label for="behavior">Behavior:</label>
+        <input type="text" id="behavior" />
+        <label for="goal">Goal:</label>
+        <select name="goal" id="goal">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </div>
+
       <button id="submit-habit-btn">Submit</button>
-      <button id="cancel-modal-btn">Cancel</button>
+      <!-- <button id="cancel-modal-btn">Cancel</button> -->
       <button id="delete-habit-btn">Delete Habit</button>
     </div>
     <footer>

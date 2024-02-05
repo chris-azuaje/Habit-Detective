@@ -51,9 +51,52 @@ table:hover {
   text-align: center;
 }
 
+.exit-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 10px 0;
+}
+
+#exit-modal-btn {
+  display: inline-block;
+  text-align: center;
+  background: none;
+  border: none;
+}
+
+#exit-modal-btn:hover {
+  cursor: pointer;
+}
+
+.edit-window-inputs-container {
+  padding-bottom: 10px;
+}
+
+#submit-habit-btn {
+  background-color: #0add08;
+  padding: 5px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+#submit-habit-btn:hover {
+  cursor: pointer;
+}
+
+#delete-habit-btn {
+  background-color: #f87858;
+  padding: 5px;
+
+  border: none;
+}
+
+#delete-habit-btn:hover {
+  cursor: pointer;
+}
+
 .edit-window {
   position: fixed;
-  background-color: rgb(144, 144, 201);
+  background-color: whitesmoke;
   border: 1px solid black;
   display: flex;
   flex-direction: column;

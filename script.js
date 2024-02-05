@@ -4,7 +4,7 @@ const editBtn = document.querySelectorAll('.edit-btn');
 const editWindow = document.querySelector('.edit-window');
 const newHabitBtn = document.querySelector('#new-habit-btn');
 const submitHabitBtn = document.querySelector('#submit-habit-btn');
-const cancelModalBtn = document.querySelector('#cancel-modal-btn');
+const exitModalBtn = document.querySelector('#exit-modal-btn');
 const deleteHabitBtn = document.querySelector('#delete-habit-btn');
 
 // Toggle Modal Window
@@ -27,7 +27,7 @@ submitHabitBtn.addEventListener('click', function () {
   toggleWindow();
 });
 
-cancelModalBtn.addEventListener('click', function () {
+exitModalBtn.addEventListener('click', function () {
   toggleWindow();
 });
 
