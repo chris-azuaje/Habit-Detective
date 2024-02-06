@@ -94,7 +94,7 @@ table:hover {
   cursor: pointer;
 }
 
-.edit-window {
+.modal-window {
   position: fixed;
   background-color: whitesmoke;
   border: 1px solid black;
