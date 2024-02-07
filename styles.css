@@ -51,6 +51,10 @@ table:hover {
   text-align: center;
 }
 
+.edit-btn {
+  background-color: yellow;
+}
+
 .exit-btn-container {
   display: flex;
   justify-content: flex-end;
