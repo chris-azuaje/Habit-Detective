@@ -52,7 +52,17 @@ table:hover {
 }
 
 .edit-btn {
-  background-color: yellow;
+  background-color: #ffd60a;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+#new-habit-btn {
+  background-color: #f87858;
+  border: none;
+  width: 100%;
+  height: 100%;
 }
 
 .exit-btn-container {
