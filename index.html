@@ -7,72 +7,74 @@
     <title>Weekly Habits</title>
   </head>
   <body>
-    <table>
-      <caption>
-        <h2>Weekly Habit Tracker</h2>
-      </caption>
-      <thead>
-        <tr>
-          <th>Behavior/Action</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thur</th>
-          <th>Fri</th>
-          <th>Sat</th>
-          <th>Sun</th>
-          <th>Achieved</th>
-          <th>Goal</th>
-          <th>Net</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="row-1">
-          <th class="action">Upload to Github</th>
-          <td class="completion-cell row-1"></td>
-          <td class="completion-cell row-1"></td>
-          <td class="completion-cell row-1"></td>
-          <td class="completion-cell row-1"></td>
-          <td class="completion-cell row-1"></td>
-          <td class="completion-cell row-1"></td>
-          <td class="completion-cell row-1"></td>
-          <td class="achieved-cell row-1">0</td>
-          <td class="goal-cell row-1"></td>
-          <td class="net-cell row-1"></td>
-          <td><button class="edit-btn">Edit</button></td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th id="total" colspan="8">TOTAL</th>
-          <td class="achieved-total"></td>
-          <td></td>
-          <td></td>
-          <td><button id="new-habit-btn">New Habit</button></td>
-        </tr>
-      </tfoot>
-    </table>
-    <div class="modal-window hidden-class">
-      <div class="exit-btn-container">
-        <button id="exit-modal-btn">❌</button>
+    <div class="main">
+      <table>
+        <caption>
+          <h2>Weekly Habit Tracker</h2>
+        </caption>
+        <thead>
+          <tr>
+            <th>Behavior/Action</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thur</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+            <th>Achieved</th>
+            <th>Goal</th>
+            <th>Net</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-1">
+            <th class="action">Upload to Github</th>
+            <td class="completion-cell row-1"></td>
+            <td class="completion-cell row-1"></td>
+            <td class="completion-cell row-1"></td>
+            <td class="completion-cell row-1"></td>
+            <td class="completion-cell row-1"></td>
+            <td class="completion-cell row-1"></td>
+            <td class="completion-cell row-1"></td>
+            <td class="achieved-cell row-1">0</td>
+            <td class="goal-cell row-1"></td>
+            <td class="net-cell row-1"></td>
+            <td><button class="edit-btn">Edit</button></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th id="total" colspan="8">TOTAL</th>
+            <td class="achieved-total"></td>
+            <td></td>
+            <td></td>
+            <td><button id="new-habit-btn">New Habit</button></td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="modal-window hidden-class">
+        <div class="exit-btn-container">
+          <button id="exit-modal-btn">❌</button>
+        </div>
+        <div class="edit-window-inputs-container">
+          <label for="behavior">Behavior:</label>
+          <input type="text" id="behavior" />
+          <label for="goal">Goal:</label>
+          <select name="goal" id="goal">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select>
+        </div>
+        <button id="submit-habit-btn">Submit</button>
+        <button id="delete-habit-btn">Delete Habit</button>
       </div>
-      <div class="edit-window-inputs-container">
-        <label for="behavior">Behavior:</label>
-        <input type="text" id="behavior" />
-        <label for="goal">Goal:</label>
-        <select name="goal" id="goal">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-        </select>
-      </div>
-      <button id="submit-habit-btn">Submit</button>
-      <button id="delete-habit-btn">Delete Habit</button>
     </div>
     <footer>
       <p>
