@@ -1,6 +1,7 @@
 :root {
   --black: #191919;
-  --dark-grey: #474c50;
+  --white: #ffffffcf;
+  --dark-grey: #202020;
   --default: #37352f;
   --grey: #787774;
   --brown: #9f6b53;
@@ -14,133 +15,82 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  height: 60vh;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: sans-serif;
 }
 
 .main {
-  border: 1px solid black;
-  border-radius: 20px;
-  padding: 60px;
+  background-color: var(--dark-grey);
+  border: 0.8px solid #ffffff48;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 45px;
+}
+
+.main-title {
+  text-align: center;
+  color: var(--grey);
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+.sub-title {
+  color: var(--grey);
+  font-weight: 500;
+  margin: -15px 0 15px 0;
 }
 
 table {
-  border: 1px solid black;
   border-collapse: collapse;
 }
 
-thead tr th {
-  padding: 10px 0;
+th {
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+tr th:first-child {
+  border-left: none;
+}
+
+tr th:last-child {
+  border-right: none;
+}
+
+tr td:last-child {
+  border-right: none;
 }
 
 th,
 td {
-  border: 1px solid black;
-}
-
-.action {
-  padding: 0 10px;
-}
-
-.completion-cell {
-  text-align: center;
-  width: 50px;
-}
-
-table:hover {
-  cursor: default;
-}
-
-.achieved-cell {
-  text-align: center;
-  width: 100px;
+  border: 0.8px solid #ffffff48;
 }
 
 .goal-cell {
-  width: 100px;
-}
-
-.net-cell {
-  width: 100px;
-}
-
-.achieved-total {
   text-align: center;
 }
 
-.edit-btn {
-  background-color: #ffd60a;
-  border: none;
-  width: 100%;
-  height: 100%;
-}
-
-#new-habit-btn {
-  background-color: #f87858;
-  border: none;
-  width: 100%;
-  height: 100%;
-}
-
-.exit-btn-container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 0 10px 0;
-}
-
-#exit-modal-btn {
+.add-habit-btn {
+  background-color: transparent;
   display: inline-block;
-  text-align: center;
-  background: none;
-  border: none;
+  margin-top: 20px;
+  border-radius: 4px;
+  border: 0.8px solid #ffffff48;
+  color: #ffffff48;
+  padding: 8px 12px;
 }
 
-#exit-modal-btn:hover {
+.add-habit-btn:hover {
   cursor: pointer;
-}
-
-.edit-window-inputs-container {
-  padding-bottom: 10px;
-}
-
-#submit-habit-btn {
-  background-color: #0add08;
-  padding: 5px;
-  border: none;
-  margin-bottom: 10px;
-}
-
-#submit-habit-btn:hover {
-  cursor: pointer;
-}
-
-#delete-habit-btn {
-  background-color: #f87858;
-  padding: 5px;
-
-  border: none;
-}
-
-#delete-habit-btn:hover {
-  cursor: pointer;
-}
-
-.modal-window {
-  position: fixed;
-  background-color: whitesmoke;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.hidden-class {
-  display: none;
+  background-color: var(--blue);
+  color: var(--black);
 }
 
 #total {
@@ -152,4 +102,18 @@ footer {
   font-family: monospace;
   position: absolute;
   bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+footer p a {
+  color: var(--green);
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+footer p a:hover {
+  background-color: var(--green);
+  color: var(--black);
+  cursor: pointer;
 }

@@ -4,43 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Weekly Habits</title>
+    <title>Rutoule</title>
   </head>
   <body>
     <div class="main">
       <table>
         <caption>
-          <h2>Weekly Habit Tracker</h2>
+          <h2 class="main-title">Rutoule</h2>
+          <h4 class="sub-title">
+            An online, user-friendly, habit-tracking gizmo.
+          </h4>
         </caption>
         <thead>
           <tr>
-            <th>Behavior/Action</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thur</th>
-            <th>Fri</th>
-            <th>Sat</th>
-            <th>Sun</th>
-            <th>Achieved</th>
-            <th>Goal</th>
-            <th>Net</th>
+            <th scope="col">Habit List</th>
+            <th scope="col">Mon</th>
+            <th scope="col">Tue</th>
+            <th scope="col">Wed</th>
+            <th scope="col">Thu</th>
+            <th scope="col">Fri</th>
+            <th scope="col">Sat</th>
+            <th scope="col">Sun</th>
+            <th scope="col">Achieved</th>
+            <th scope="col">Goal</th>
+            <th scope="col">Net</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="row-1">
-            <th class="action">Upload to Github</th>
-            <td class="completion-cell row-1"></td>
-            <td class="completion-cell row-1"></td>
-            <td class="completion-cell row-1"></td>
-            <td class="completion-cell row-1"></td>
-            <td class="completion-cell row-1"></td>
-            <td class="completion-cell row-1"></td>
-            <td class="completion-cell row-1"></td>
-            <td class="achieved-cell row-1">0</td>
-            <td class="goal-cell row-1"></td>
-            <td class="net-cell row-1"></td>
-            <td><button class="edit-btn">Edit</button></td>
+          <tr>
+            <th scope="row">Example Habit</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="goal-cell"></td>
+            <td></td>
           </tr>
         </tbody>
         <tfoot>
@@ -49,32 +51,10 @@
             <td class="achieved-total"></td>
             <td></td>
             <td></td>
-            <td><button id="new-habit-btn">New Habit</button></td>
           </tr>
         </tfoot>
       </table>
-      <div class="modal-window hidden-class">
-        <div class="exit-btn-container">
-          <button id="exit-modal-btn">❌</button>
-        </div>
-        <div class="edit-window-inputs-container">
-          <label for="behavior">Behavior:</label>
-          <input type="text" id="behavior" />
-          <label for="goal">Goal:</label>
-          <select name="goal" id="goal">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-          </select>
-        </div>
-        <button id="submit-habit-btn">Submit</button>
-        <button id="delete-habit-btn">Delete Habit</button>
-      </div>
+      <div role="button" class="add-habit-btn">Add Habit</div>
     </div>
     <footer>
       <p>
@@ -83,6 +63,5 @@
       </p>
     </footer>
   </body>
-
   <script src="script.js"></script>
 </html>
