@@ -16,4 +16,13 @@ addHabitBtn.addEventListener('click', function () {
   createHabit();
 });
 
-function markCell() {}
+const cells = document.querySelectorAll('.markable-cell');
+cells.forEach(function (cell) {
+  cell.addEventListener('click', function () {
+    if (cell.innerHTML === '') {
+      cell.innerHTML = 'X';
+    } else {
+      cell.innerHTML = '';
+    }
+  });
+});
