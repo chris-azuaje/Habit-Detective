@@ -73,6 +73,14 @@ td {
   border: 0.8px solid #ffffff48;
 }
 
+.markable-cell {
+  text-align: center;
+}
+
+.markable-cell:hover {
+  cursor: default;
+}
+
 .goal-cell {
   text-align: center;
 }
