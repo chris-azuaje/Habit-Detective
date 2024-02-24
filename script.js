@@ -2,6 +2,20 @@
 
 const addHabitBtn = document.querySelector('.add-habit-btn');
 
+function markCell() {
+  let cells = document.querySelectorAll('.markable-cell');
+  cells.forEach(function (cell) {
+    cell.addEventListener('click', function () {
+      if (cell.innerHTML === '') {
+        cell.innerHTML = '&#9737;';
+      } else {
+        cell.innerHTML = '';
+      }
+    });
+  });
+}
+markCell();
+
 // FIX THIS
 function createHabit() {
   let goal;
@@ -17,21 +31,10 @@ function createHabit() {
   document.querySelector(
     'tbody'
   ).innerHTML += `<tr><th scope="row">${habit}</th><td class="markable-cell"></td><td class="markable-cell"></td><td class="markable-cell"></td><td class="markable-cell"></td><td class="markable-cell"></td><td class="markable-cell"></td><td class="markable-cell"></td><td></td><td class="goal-cell">${goal}</td><td></td></tr>`;
-  console.log(typeof habit);
+
+  markCell();
 }
 
 addHabitBtn.addEventListener('click', function () {
   createHabit();
-});
-
-const cells = document.querySelectorAll('.markable-cell');
-
-cells.forEach(function (cell) {
-  cell.addEventListener('click', function () {
-    if (cell.innerHTML === '') {
-      cell.innerHTML = '&#9737;';
-    } else {
-      cell.innerHTML = '';
-    }
-  });
 });
