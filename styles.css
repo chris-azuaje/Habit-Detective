@@ -85,7 +85,7 @@ td {
   text-align: center;
 }
 
-.add-habit-btn {
+#addHabitBtn {
   background-color: transparent;
   display: inline-block;
   margin-top: 20px;
@@ -95,7 +95,7 @@ td {
   padding: 8px 12px;
 }
 
-.add-habit-btn:hover {
+#addHabitBtn:hover {
   cursor: pointer;
   background-color: var(--blue);
   color: var(--black);

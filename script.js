@@ -1,6 +1,9 @@
 'use strict';
 
-const addHabitBtn = document.querySelector('.add-habit-btn');
+const addHabitBtn = document.querySelector('#addHabitBtn');
+addHabitBtn.addEventListener('click', function () {
+  createHabit();
+});
 
 function markCell() {
   let cells = document.querySelectorAll('.markable-cell');
@@ -16,7 +19,10 @@ function markCell() {
 }
 markCell();
 
-// FIX THIS
+function achievedCell() {
+  let achievedCell = document.querySelectorAll('#achievedCell');
+}
+
 function createHabit() {
   let goal;
   let habit = window.prompt("Write down a habit that you'd like to work on.");
@@ -34,7 +40,3 @@ function createHabit() {
 
   markCell();
 }
-
-addHabitBtn.addEventListener('click', function () {
-  createHabit();
-});
