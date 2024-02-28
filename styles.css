@@ -73,16 +73,42 @@ td {
   border: 0.8px solid #ffffff48;
 }
 
-.markable-cell {
+.markableCell {
   text-align: center;
 }
 
-.markable-cell:hover {
+.markableCell:hover {
   cursor: default;
 }
 
-.goal-cell {
+.achievedCell {
   text-align: center;
+  margin: 0;
+}
+
+.goalCell {
+  text-align: center;
+  margin: 0;
+}
+
+.netCell {
+  text-align: center;
+  margin: 0;
+}
+
+.achievedTotal {
+  text-align: center;
+  margin: 0;
+}
+
+.goalTotal {
+  text-align: center;
+  margin: 0;
+}
+
+.netTotal {
+  text-align: center;
+  margin: 0;
 }
 
 #addHabitBtn {
