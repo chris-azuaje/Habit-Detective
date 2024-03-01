@@ -134,6 +134,12 @@ td {
   color: var(--black);
 }
 
+#deleteHabitBtn:hover {
+  cursor: pointer;
+  background-color: var(--red);
+  color: var(--black);
+}
+
 #total {
   padding-right: 10px;
   text-align: right;

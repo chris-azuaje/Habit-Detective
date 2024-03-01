@@ -1,21 +1,87 @@
 'use strict';
 
+document.addEventListener('DOMContentLoaded', loadHabitsFromLocalStorage);
+
 const addHabitBtn = document.querySelector('#addHabitBtn');
+const deleteHabitBtn = document.querySelector('#deleteHabitBtn');
+
 addHabitBtn.addEventListener('click', function () {
   createHabit();
 });
+deleteHabitBtn.addEventListener('click', function () {
+  removeHabit();
+});
 
-let habit_1 = {
-  habit: 'Go to the gym',
-  mon: false,
-  tue: false,
-  wed: true,
-  thur: true,
-  fri: false,
-  sat: true,
-  sun: false,
-  goal: 3,
-};
+// Local Storage Practice
+function saveHabitsToLocalStorage() {
+  let habits = [];
+  document.querySelectorAll('tbody tr').forEach((row) => {
+    const habit = {
+      name: row.querySelector('th').innerText,
+      marks: Array.from(row.querySelectorAll('.markableCell')).map(
+        (cell) => cell.innerHTML
+      ),
+      goal: row.querySelector('.goalCell').innerText,
+    };
+    habits.push(habit);
+  });
+  localStorage.setItem('habits', JSON.stringify(habits));
+}
+
+function removeHabit() {
+  let removeHabitName = prompt(
+    'Which habit would you like to remove? Type the name of the habit.'
+  );
+  let savedHabits = JSON.parse(localStorage.getItem('habits'));
+  if (savedHabits) {
+    const index = savedHabits.findIndex(
+      (habit) => habit.name === removeHabitName
+    );
+    if (index !== -1) {
+      // Remove the habit from the array
+      savedHabits.splice(index, 1);
+
+      // Update localStorage with the new array
+      localStorage.setItem('habits', JSON.stringify(savedHabits));
+
+      // Remove the habit from the UI
+      document.querySelectorAll('tbody tr').forEach((row) => {
+        if (row.querySelector('th').innerText === removeHabitName) {
+          row.remove();
+        }
+      });
+
+      // Optionally, recalculate totals if your application requires
+      calcTotals();
+    } else {
+      alert('Habit not found.');
+    }
+  }
+}
+
+function loadHabitsFromLocalStorage() {
+  const savedHabits = JSON.parse(localStorage.getItem('habits'));
+  if (savedHabits) {
+    savedHabits.forEach((habit) => {
+      const rowHTML = `<tr>
+        <th scope="row">${habit.name}</th>
+        ${habit.marks
+          .map((mark) => `<td class="markableCell">${mark}</td>`)
+          .join('')}
+        <td class="achievedCell"></td>
+        <td class="goalCell">${habit.goal}</td>
+        <td class="netCell"></td>
+      </tr>`;
+
+      document.querySelector('tbody').insertAdjacentHTML('beforeend', rowHTML);
+    });
+
+    markCell();
+    achievedCell();
+    netCell();
+    calcTotals();
+  }
+}
 
 // Calculate achieved, goal, and net totals
 function calcTotals() {
@@ -80,11 +146,13 @@ function markCell() {
         achievedCell();
         netCell();
         calcTotals();
+        saveHabitsToLocalStorage();
       } else {
         cell.innerHTML = '';
         achievedCell();
         netCell();
         calcTotals();
+        saveHabitsToLocalStorage();
       }
     });
   });
@@ -115,6 +183,7 @@ function createHabit() {
       markCell();
       achievedCell();
       calcTotals();
+      saveHabitsToLocalStorage();
     } else {
       window.alert('Please enter number between 1 and 7 for a valid goal.');
     }
@@ -122,39 +191,3 @@ function createHabit() {
     window.alert('Please strictly enter text for a valid habit.');
   }
 }
-
-// Local Storage Practice
-
-let habitObj = {
-  habit: 'Example Habit',
-  mon: false,
-  tue: false,
-  wed: true,
-  thur: true,
-  fri: false,
-  sat: true,
-  sun: false,
-  goal: 3,
-};
-
-let myObj = {
-  name: 'Chris',
-  age: 26,
-};
-
-let myObj2 = Object.create(myObj);
-myObj2.name = 'Thomas';
-myObj2.age = 35;
-
-console.log(myObj);
-console.log(myObj2);
-
-// Creates string version of object
-let myObj_serialized = JSON.stringify(myObj);
-
-// console.log(myObj_serialized);
-
-// Converts a string and converts it to an object.
-let myObj_deserialized = JSON.parse(localStorage.getItem('myObj'));
-
-// console.log(myObj_deserialized);
