@@ -5,6 +5,18 @@ addHabitBtn.addEventListener('click', function () {
   createHabit();
 });
 
+let habit_1 = {
+  habit: 'Go to the gym',
+  mon: false,
+  tue: false,
+  wed: true,
+  thur: true,
+  fri: false,
+  sat: true,
+  sun: false,
+  goal: 3,
+};
+
 // Calculate achieved, goal, and net totals
 function calcTotals() {
   let achievedTotal = 0;
@@ -110,3 +122,39 @@ function createHabit() {
     window.alert('Please strictly enter text for a valid habit.');
   }
 }
+
+// Local Storage Practice
+
+let habitObj = {
+  habit: 'Example Habit',
+  mon: false,
+  tue: false,
+  wed: true,
+  thur: true,
+  fri: false,
+  sat: true,
+  sun: false,
+  goal: 3,
+};
+
+let myObj = {
+  name: 'Chris',
+  age: 26,
+};
+
+let myObj2 = Object.create(myObj);
+myObj2.name = 'Thomas';
+myObj2.age = 35;
+
+console.log(myObj);
+console.log(myObj2);
+
+// Creates string version of object
+let myObj_serialized = JSON.stringify(myObj);
+
+// console.log(myObj_serialized);
+
+// Converts a string and converts it to an object.
+let myObj_deserialized = JSON.parse(localStorage.getItem('myObj'));
+
+// console.log(myObj_deserialized);
