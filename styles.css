@@ -33,15 +33,15 @@ body {
 
 .main-title {
   text-align: center;
-  color: var(--grey);
+  color: var(--white);
   font-size: 30px;
   margin: 15px 0;
 }
 
 .sub-title {
-  color: var(--grey);
+  color: var(--white);
   font-weight: 500;
-  margin: -15px 0 15px 0;
+  margin: -10px 0 15px 0;
 }
 
 table {
