@@ -70,7 +70,6 @@ function loadHabitsFromLocalStorage() {
           .join('')}
         <td class="achievedCell"></td>
         <td class="goalCell">${habit.goal}</td>
-        <td class="netCell"></td>
       </tr>`;
 
       document.querySelector('tbody').insertAdjacentHTML('beforeend', rowHTML);
@@ -78,48 +77,31 @@ function loadHabitsFromLocalStorage() {
 
     markCell();
     achievedCell();
-    netCell();
     calcTotals();
   }
 }
 
-// Calculate achieved, goal, and net totals
+// Calculate achieved and goal totals
 function calcTotals() {
   let achievedTotal = 0;
   let goalTotal = 0;
-  let netTotal = 0;
 
   document.querySelectorAll('tbody tr').forEach((row) => {
     let achievedVal = parseInt(row.querySelector('.achievedCell').innerText);
     let goalVal = parseInt(row.querySelector('.goalCell').innerText);
-    let netVal = parseInt(row.querySelector('.netCell').innerText);
 
     achievedVal > 0
       ? (achievedTotal += achievedVal)
       : (achievedTotal = achievedTotal);
 
     goalVal > 0 ? (goalTotal += goalVal) : (goalTotal = goalTotal);
-
-    netVal > 0 ? (netTotal += netVal) : (netTotal = netTotal);
   });
 
   document.querySelector('.achievedTotal').innerHTML = `${achievedTotal}`;
 
   document.querySelector('.goalTotal').innerHTML = `${goalTotal}`;
-
-  document.querySelector('.netTotal').innerHTML = `${netTotal}`;
 }
 calcTotals();
-
-// Calculate the net cells in each row
-function netCell() {
-  document.querySelectorAll('tbody tr').forEach((row) => {
-    let achieved = parseInt(row.querySelector('.achievedCell').innerText);
-    let goal = parseInt(row.querySelector('.goalCell').innerText);
-
-    row.querySelector('.netCell').innerHTML = `${goal - achieved}`;
-  });
-}
 
 // Calculate the achieved cells in each row
 function achievedCell() {
@@ -144,13 +126,11 @@ function markCell() {
       if (cell.innerHTML === '') {
         cell.innerHTML = '✅';
         achievedCell();
-        netCell();
         calcTotals();
         saveHabitsToLocalStorage();
       } else {
         cell.innerHTML = '';
         achievedCell();
-        netCell();
         calcTotals();
         saveHabitsToLocalStorage();
       }
@@ -178,7 +158,7 @@ function createHabit() {
         .querySelector('tbody')
         .insertAdjacentHTML(
           'beforeend',
-          `<tr><th scope="row">${habit}</th><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="achievedCell"></td><td class="goalCell">${goal}</td><td class="netCell"></td></tr>`
+          `<tr><th scope="row">${habit}</th><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="achievedCell"></td><td class="goalCell">${goal}</td></tr>`
         );
       markCell();
       achievedCell();
