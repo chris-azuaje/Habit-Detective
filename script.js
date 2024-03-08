@@ -12,7 +12,7 @@ deleteHabitBtn.addEventListener('click', function () {
   removeHabit();
 });
 
-// Local Storage Practice
+// Save habits into local storage using JSON
 function saveHabitsToLocalStorage() {
   let habits = [];
   document.querySelectorAll('tbody tr').forEach((row) => {
@@ -28,6 +28,7 @@ function saveHabitsToLocalStorage() {
   localStorage.setItem('habits', JSON.stringify(habits));
 }
 
+// Remove habit from array, update localStorage, and delete the related row.
 function removeHabit() {
   let removeHabitName = prompt(
     'Which habit would you like to remove? Type the name of the habit.'
@@ -38,20 +39,13 @@ function removeHabit() {
       (habit) => habit.name === removeHabitName
     );
     if (index !== -1) {
-      // Remove the habit from the array
       savedHabits.splice(index, 1);
-
-      // Update localStorage with the new array
       localStorage.setItem('habits', JSON.stringify(savedHabits));
-
-      // Remove the habit from the UI
       document.querySelectorAll('tbody tr').forEach((row) => {
         if (row.querySelector('th').innerText === removeHabitName) {
           row.remove();
         }
       });
-
-      // Optionally, recalculate totals if your application requires
       calcTotals();
     } else {
       alert('Habit not found.');
@@ -59,6 +53,7 @@ function removeHabit() {
   }
 }
 
+// Take JSON information and create habits from that.
 function loadHabitsFromLocalStorage() {
   const savedHabits = JSON.parse(localStorage.getItem('habits'));
   if (savedHabits) {
