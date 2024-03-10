@@ -93,7 +93,6 @@ function calcTotals() {
   });
 
   document.querySelector('.achievedTotal').innerHTML = `${achievedTotal}`;
-
   document.querySelector('.goalTotal').innerHTML = `${goalTotal}`;
 }
 calcTotals();
@@ -105,7 +104,6 @@ function achievedCell() {
     row
       .querySelectorAll('.markableCell')
       .forEach((cell) => (cell.innerHTML !== '' ? count++ : count));
-
     row.querySelector('.achievedCell').innerHTML = `${count}`;
   });
 }

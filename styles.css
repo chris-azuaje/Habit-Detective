@@ -94,11 +94,13 @@ td {
 .achievedTotal {
   text-align: center;
   margin: 0;
+  font-weight: 700;
 }
 
 .goalTotal {
   text-align: center;
   margin: 0;
+  font-weight: 700;
 }
 
 .button {
@@ -133,6 +135,7 @@ td {
 #total {
   padding-right: 10px;
   text-align: right;
+  font-weight: 700;
 }
 
 footer {
