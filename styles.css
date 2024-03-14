@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --black: #191919;
   --white: #ffffffcf;
@@ -156,4 +162,10 @@ footer p a:hover {
   background-color: var(--green);
   color: var(--black);
   cursor: pointer;
+}
+
+#sidebar {
+  background-color: var(--dark-grey);
+  width: 308px;
+  height: 100vh;
 }
