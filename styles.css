@@ -165,7 +165,50 @@ footer p a:hover {
 }
 
 #sidebar {
+  position: absolute;
   background-color: var(--dark-grey);
+  margin-left: -308px;
   width: 308px;
   height: 100vh;
+  border-right: 0.8px solid #ffffff48;
+  transition: all 0.5s ease;
+}
+
+#check {
+  display: none;
+}
+
+label #btn,
+label #cancel {
+  position: absolute;
+  cursor: pointer;
+}
+
+label #btn {
+  left: 20px;
+  top: 20px;
+  font-size: 25px;
+  transition: all 0.5s ease;
+}
+
+label #cancel {
+  z-index: 1111;
+  left: -280px;
+  top: 15px;
+  font-size: 25px;
+  transition: all 0.5s ease;
+}
+
+#check:checked ~ #sidebar {
+  margin-left: 0;
+}
+
+#check:checked ~ label #btn {
+  opacity: 0;
+  pointer-events: none;
+  left: 308px;
+}
+
+#check:checked ~ label #cancel {
+  left: 280px;
 }
