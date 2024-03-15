@@ -22,9 +22,19 @@
       href="images/favicon-16x16.png"
     />
     <link rel="manifest" href="images/site.webmanifest" />
+    <script
+      src="https://kit.fontawesome.com/1fd1ffd6f1.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Habit Detective</title>
   </head>
   <body>
+    <input type="checkbox" id="check" />
+    <label for="check">
+      <i class="fa-solid fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div id="sidebar"></div>
     <div class="main">
       <table>
         <caption>
@@ -68,6 +78,7 @@
         Delete
       </button>
     </div>
+
     <footer>
       <p>
         Created by
