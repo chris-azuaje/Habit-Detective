@@ -172,12 +172,16 @@ footer p a:hover {
   height: 100vh;
   border-right: 0.8px solid #ffffff48;
   transition: all 0.5s ease;
-
   display: flex;
   flex-direction: column;
-
-  /* fix this */
   padding-top: 50px;
+}
+
+.sidebarInput {
+  margin: 5px 10px;
+  padding: 0 5px;
+  height: 40px;
+  border-radius: 5px;
 }
 
 #check {
