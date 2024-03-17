@@ -184,6 +184,10 @@ footer p a:hover {
   border-radius: 5px;
 }
 
+#sidebar .button {
+  margin: 0 10px;
+}
+
 #check {
   display: none;
 }

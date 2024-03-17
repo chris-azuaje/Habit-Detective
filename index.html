@@ -45,13 +45,22 @@
       />
       <label for="habitDays"></label>
       <input
-        type="number"
+        type="option"
         id="habitDays"
         class="sidebarInput"
         min="0"
         max="7"
         placeholder="Enter number of days"
       />
+      <select name="habitDays" id="habitDays">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
       <button aria-label="Add" role="button" class="button" id="addHabitBtn">
         Add
       </button>
