@@ -35,24 +35,12 @@
       <i class="fas fa-times" id="cancel"></i>
     </label>
     <div id="sidebar">
-      <h3>The Sidebar</h3>
-      <label for="habit"></label>
-      <input
-        type="text"
-        id="habit"
-        class="sidebarInput"
-        placeholder="Enter a habit here!"
-      />
+      <h3>Habit Detective</h3>
+      <label for="sidebarInput"></label>
+      <input type="text" id="sidebarInput" placeholder="Enter a habit here!" />
       <label for="habitDays"></label>
-      <input
-        type="option"
-        id="habitDays"
-        class="sidebarInput"
-        min="0"
-        max="7"
-        placeholder="Enter number of days"
-      />
-      <select name="habitDays" id="habitDays">
+      <select name="habitDays" id="sidebarDaySelect">
+        <option value="">Choose number of days</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

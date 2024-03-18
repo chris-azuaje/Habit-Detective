@@ -164,6 +164,10 @@ footer p a:hover {
   cursor: pointer;
 }
 
+#sidebar h3 {
+  text-align: center;
+}
+
 #sidebar {
   position: absolute;
   background-color: var(--dark-grey);
@@ -177,15 +181,27 @@ footer p a:hover {
   padding-top: 50px;
 }
 
-.sidebarInput {
-  margin: 5px 10px;
+#sidebarInput {
+  margin: 0 10px;
+  margin-top: 15px;
   padding: 0 5px;
   height: 40px;
   border-radius: 5px;
+  background-color: var(--white);
+}
+
+#sidebarDaySelect {
+  margin: 0 10px;
+  margin-top: 15px;
+  padding: 0 5px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--white);
 }
 
 #sidebar .button {
   margin: 0 10px;
+  margin-top: 15px;
 }
 
 #check {
