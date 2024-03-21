@@ -2,12 +2,15 @@
 
 document.addEventListener('DOMContentLoaded', loadHabitsFromLocalStorage);
 
-const addHabitBtn = document.querySelector('#addHabitBtn');
-const deleteHabitBtn = document.querySelector('#deleteHabitBtn');
+const addHabitBtn = document.querySelectorAll('.btn__add');
+const deleteHabitBtn = document.querySelector('#btn__delete');
 
-addHabitBtn.addEventListener('click', function () {
-  createHabit();
+addHabitBtn.forEach((btn) => {
+  btn.addEventListener('click', function () {
+    createHabit();
+  });
 });
+
 deleteHabitBtn.addEventListener('click', function () {
   removeHabit();
 });
@@ -21,7 +24,7 @@ function saveHabitsToLocalStorage() {
       marks: Array.from(row.querySelectorAll('.markableCell')).map(
         (cell) => cell.innerHTML
       ),
-      goal: row.querySelector('.goalCell').innerText,
+      goal: row.querySelector('.goal__cell').innerText,
     };
     habits.push(habit);
   });
@@ -63,8 +66,8 @@ function loadHabitsFromLocalStorage() {
         ${habit.marks
           .map((mark) => `<td class="markableCell">${mark}</td>`)
           .join('')}
-        <td class="achievedCell"></td>
-        <td class="goalCell">${habit.goal}</td>
+        <td class="achieved__cell"></td>
+        <td class="goal__cell">${habit.goal}</td>
       </tr>`;
 
       document.querySelector('tbody').insertAdjacentHTML('beforeend', rowHTML);
@@ -82,8 +85,8 @@ function calcTotals() {
   let goalTotal = 0;
 
   document.querySelectorAll('tbody tr').forEach((row) => {
-    let achievedVal = parseInt(row.querySelector('.achievedCell').innerText);
-    let goalVal = parseInt(row.querySelector('.goalCell').innerText);
+    let achievedVal = parseInt(row.querySelector('.achieved__cell').innerText);
+    let goalVal = parseInt(row.querySelector('.goal__cell').innerText);
 
     achievedVal > 0
       ? (achievedTotal += achievedVal)
@@ -92,8 +95,8 @@ function calcTotals() {
     goalVal > 0 ? (goalTotal += goalVal) : (goalTotal = goalTotal);
   });
 
-  document.querySelector('.achievedTotal').innerHTML = `${achievedTotal}`;
-  document.querySelector('.goalTotal').innerHTML = `${goalTotal}`;
+  document.querySelector('.achieved__total').innerHTML = `${achievedTotal}`;
+  document.querySelector('.goal__total').innerHTML = `${goalTotal}`;
 }
 calcTotals();
 
@@ -104,7 +107,7 @@ function achievedCell() {
     row
       .querySelectorAll('.markableCell')
       .forEach((cell) => (cell.innerHTML !== '' ? count++ : count));
-    row.querySelector('.achievedCell').innerHTML = `${count}`;
+    row.querySelector('.achieved__cell').innerHTML = `${count}`;
   });
 }
 
@@ -151,7 +154,7 @@ function createHabit() {
         .querySelector('tbody')
         .insertAdjacentHTML(
           'beforeend',
-          `<tr><th scope="row">${habit}</th><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="achievedCell"></td><td class="goalCell">${goal}</td></tr>`
+          `<tr><th scope="row">${habit}</th><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="achieved__cell"></td><td class="goal__cell">${goal}</td></tr>`
         );
       markCell();
       achievedCell();
