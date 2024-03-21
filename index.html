@@ -29,36 +29,48 @@
     <title>Habit Detective</title>
   </head>
   <body>
+    <!-- Menu and exit icons -->
     <input type="checkbox" id="check" />
     <label for="check">
       <i class="fa-solid fa-bars" id="btn"></i>
       <i class="fas fa-times" id="cancel"></i>
     </label>
+
+    <!-- Sidebar -->
     <div id="sidebar">
-      <h3>Habit Detective</h3>
-      <label for="sidebarInput"></label>
-      <input type="text" id="sidebarInput" placeholder="Enter a habit here!" />
-      <label for="habitDays"></label>
-      <select name="habitDays" id="sidebarDaySelect">
-        <option value="">Choose number of days</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-      </select>
-      <button aria-label="Add" role="button" class="button" id="addHabitBtn">
-        Add
-      </button>
+      <div id="sidebar__container">
+        <h3>Settings</h3>
+        <div class="input__container">
+          <label for="sidebar__input--text">Enter a habit here:</label>
+          <input
+            type="text"
+            id="sidebar__input--text"
+            placeholder="Go to the gym"
+          />
+        </div>
+        <div class="divider"></div>
+        <div class="input__container">
+          <label for="sidebar__input--day">Enter number of days here:</label>
+          <select name="habitDays" id="sidebar__input--day">
+            <option value="1">1 day per week</option>
+            <option value="2">2 days per week</option>
+            <option value="3">3 days per week</option>
+            <option value="4">4 days per week</option>
+            <option value="5">5 days per week</option>
+            <option value="6">6 days per week</option>
+            <option value="7">7 days per week</option>
+          </select>
+        </div>
+        <div class="divider"></div>
+        <button aria-label="Add" role="button" class="btn btn__add">Add</button>
+      </div>
     </div>
-    <div class="main">
+    <div id="main">
       <table>
         <caption>
-          <h2 class="main-title">Habit Detective 🕵️‍♀️</h2>
-          <h4 class="sub-title">
-            An online, user-friendly, habit-tracking gizmo.
+          <h2 class="main__title">Habit Detective 🕵️‍♀️</h2>
+          <h4 class="sub__title">
+            An online, user-friendly, habit-tracking gizmo
           </h4>
         </caption>
         <thead>
@@ -79,20 +91,13 @@
         <tfoot>
           <tr>
             <th id="total" colspan="8" scope="row">TOTAL</th>
-            <td class="achievedTotal"></td>
-            <td class="goalTotal"></td>
+            <td class="achieved__total"></td>
+            <td class="goal__total"></td>
           </tr>
         </tfoot>
       </table>
-      <button aria-label="Add" role="button" class="button" id="addHabitBtn">
-        Add
-      </button>
-      <button
-        aria-label="Delete"
-        role="button"
-        class="button"
-        id="deleteHabitBtn"
-      >
+      <button aria-label="Add" role="button" class="btn btn__add">Add</button>
+      <button aria-label="Delete" role="button" class="btn" id="btn__delete">
         Delete
       </button>
     </div>
