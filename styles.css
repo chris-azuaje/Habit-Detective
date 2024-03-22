@@ -116,7 +116,18 @@ td {
   padding: 8px 12px;
 }
 
-.btn__add:hover {
+#btn__create,
+#btn__delete {
+  margin-top: 10px;
+}
+
+#btn__add:hover {
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--black);
+}
+
+#btn__create:hover {
   cursor: pointer;
   background-color: var(--blue);
   color: var(--black);
@@ -155,9 +166,11 @@ footer p a:hover {
 }
 
 #sidebar {
+  z-index: 100;
   position: absolute;
   background-color: var(--dark-grey);
   margin-left: -308px;
+  margin-right: 10px;
   width: 308px;
   height: 100vh;
   border-right: 0.8px solid #ffffff48;
@@ -253,4 +266,8 @@ label #cancel {
 
 #check:checked ~ label #cancel {
   left: 280px;
+}
+
+#check:checked ~ #main {
+  opacity: 0.5;
 }
