@@ -2,13 +2,17 @@
 
 document.addEventListener('DOMContentLoaded', loadHabitsFromLocalStorage);
 
-const addHabitBtn = document.querySelectorAll('.btn__add');
+const addHabitBtn = document.querySelector('#btn__add');
+const createNewBtn = document.querySelector('#btn__create');
 const deleteHabitBtn = document.querySelector('#btn__delete');
 
-addHabitBtn.forEach((btn) => {
-  btn.addEventListener('click', function () {
-    createHabit();
-  });
+addHabitBtn.addEventListener('click', function () {
+  createHabit();
+  document.querySelector('#check').checked = false;
+});
+
+createNewBtn.addEventListener('click', function () {
+  document.querySelector('#check').checked = true;
 });
 
 deleteHabitBtn.addEventListener('click', function () {
@@ -34,24 +38,49 @@ function saveHabitsToLocalStorage() {
 // Remove habit from array, update localStorage, and delete the related row.
 function removeHabit() {
   let removeHabitName = prompt(
-    'Which habit would you like to remove? Type the name of the habit.'
+    'Which habit would you like to remove? Type the name of the habit or "all" to remove all habits at once.'
   );
+
+  // Getting habits from local storage
   let savedHabits = JSON.parse(localStorage.getItem('habits'));
+
   if (savedHabits) {
-    const index = savedHabits.findIndex(
-      (habit) => habit.name === removeHabitName
-    );
-    if (index !== -1) {
-      savedHabits.splice(index, 1);
+    if (removeHabitName.toLowerCase() == 'all') {
+      // Remove all habits
+      savedHabits.splice(0);
+
+      // Save updated arr into local storage
       localStorage.setItem('habits', JSON.stringify(savedHabits));
+
+      // Remove all habits from UI
       document.querySelectorAll('tbody tr').forEach((row) => {
-        if (row.querySelector('th').innerText === removeHabitName) {
-          row.remove();
-        }
+        row.remove();
       });
+
       calcTotals();
     } else {
-      alert('Habit not found.');
+      // Find index of habit wished to remove
+      const removeHabitIndex = savedHabits.findIndex(
+        (habit) => habit.name === removeHabitName
+      );
+
+      if (removeHabitIndex !== -1) {
+        // Remove habit from array
+        savedHabits.splice(removeHabitIndex, 1);
+
+        // Save updated arr into local storage
+        localStorage.setItem('habits', JSON.stringify(savedHabits));
+
+        // Remove selected habit from UI
+        document.querySelectorAll('tbody tr').forEach((row) => {
+          if (row.querySelector('th').innerText === removeHabitName) {
+            row.remove();
+          }
+        });
+        calcTotals();
+      } else {
+        alert('Habit not found.');
+      }
     }
   }
 }
@@ -137,33 +166,28 @@ markCell();
 
 // Create a habit
 function createHabit() {
-  let goal;
-  let habit = window.prompt("Write down a habit that you'd like to work on.");
+  let habitName = document.getElementById('sidebar__input--text').value;
+  let habitNum = Number(document.getElementById('sidebar__input--day').value);
 
-  if (habit && isNaN(habit)) {
-    goal = window.prompt(
-      'How many days per week would you like to work on it?'
-    );
-    if (
-      goal &&
-      !isNaN(goal) &&
-      parseInt(goal, 10) >= 0 &&
-      parseInt(goal, 10) <= 7
-    ) {
-      document
-        .querySelector('tbody')
-        .insertAdjacentHTML(
-          'beforeend',
-          `<tr><th scope="row">${habit}</th><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="achieved__cell"></td><td class="goal__cell">${goal}</td></tr>`
-        );
-      markCell();
-      achievedCell();
-      calcTotals();
-      saveHabitsToLocalStorage();
-    } else {
-      window.alert('Please enter number between 1 and 7 for a valid goal.');
-    }
-  } else {
-    window.alert('Please strictly enter text for a valid habit.');
+  if (habitName && isNaN(habitName)) {
+    document
+      .querySelector('tbody')
+      .insertAdjacentHTML(
+        'beforeend',
+        `<tr><th scope="row">${habitName}</th><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="achieved__cell"></td><td class="goal__cell">${habitNum}</td></tr>`
+      );
+    markCell();
+    achievedCell();
+    calcTotals();
+    saveHabitsToLocalStorage();
+    clearInputs();
   }
+}
+
+function clearInputs() {
+  let habitName = document.getElementById('sidebar__input--text');
+  let habitNum = document.getElementById('sidebar__input--day');
+
+  habitName.value = '';
+  habitNum.value = '';
 }

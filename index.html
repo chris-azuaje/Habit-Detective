@@ -52,6 +52,7 @@
         <div class="input__container">
           <label for="sidebar__input--day">Enter number of days here:</label>
           <select name="habitDays" id="sidebar__input--day">
+            <option value=""></option>
             <option value="1">1 day per week</option>
             <option value="2">2 days per week</option>
             <option value="3">3 days per week</option>
@@ -62,7 +63,9 @@
           </select>
         </div>
         <div class="divider"></div>
-        <button aria-label="Add" role="button" class="btn btn__add">Add</button>
+        <button aria-label="Add" role="button" class="btn" id="btn__add">
+          Add
+        </button>
       </div>
     </div>
     <div id="main">
@@ -96,7 +99,9 @@
           </tr>
         </tfoot>
       </table>
-      <button aria-label="Add" role="button" class="btn btn__add">Add</button>
+      <button aria-label="Add" role="button" class="btn" id="btn__create">
+        Create New
+      </button>
       <button aria-label="Delete" role="button" class="btn" id="btn__delete">
         Delete
       </button>
