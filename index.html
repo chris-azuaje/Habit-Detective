@@ -29,29 +29,35 @@
     <title>Habit Detective</title>
   </head>
   <body>
-    <!-- Menu and exit icons -->
-    <input type="checkbox" id="check" />
-    <label for="check">
-      <i class="fa-solid fa-bars" id="btn"></i>
-      <i class="fas fa-times" id="cancel"></i>
-    </label>
-
     <!-- Sidebar -->
     <div id="sidebar">
       <div id="sidebar__container">
-        <h3>Settings</h3>
+        <div id="sidebar__header">
+          <h3>Menu</h3>
+          <i class="fas fa-times" id="sidebar__exit"></i>
+        </div>
+
         <div class="input__container">
-          <label for="sidebar__input--text">Enter a habit here:</label>
+          <label for="sidebar__input--text" class="sidebar__input--title"
+            >Track a new habit:</label
+          >
           <input
             type="text"
             id="sidebar__input--text"
-            placeholder="Go to the gym"
+            class="sidebar__input"
+            placeholder="Drink 8 glasses of water"
           />
         </div>
-        <div class="divider"></div>
+
         <div class="input__container">
-          <label for="sidebar__input--day">Enter number of days here:</label>
-          <select name="habitDays" id="sidebar__input--day">
+          <label for="sidebar__input--day" class="sidebar__input--title"
+            >Set your weekly habit goal:</label
+          >
+          <select
+            name="habitDays"
+            id="sidebar__input--day"
+            class="sidebar__input"
+          >
             <option value=""></option>
             <option value="1">1 day per week</option>
             <option value="2">2 days per week</option>
@@ -62,57 +68,60 @@
             <option value="7">7 days per week</option>
           </select>
         </div>
-        <div class="divider"></div>
         <button aria-label="Add" role="button" class="btn" id="btn__add">
           Add
         </button>
       </div>
     </div>
-    <div id="main">
-      <table>
-        <caption>
-          <h2 class="main__title">Habit Detective 🕵️‍♀️</h2>
-          <h4 class="sub__title">
-            An online, user-friendly, habit-tracking gizmo
-          </h4>
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Habit List</th>
-            <th scope="col">Mon</th>
-            <th scope="col">Tue</th>
-            <th scope="col">Wed</th>
-            <th scope="col">Thu</th>
-            <th scope="col">Fri</th>
-            <th scope="col">Sat</th>
-            <th scope="col">Sun</th>
-            <th scope="col">Achieved</th>
-            <th scope="col">Goal</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-          <tr>
-            <th id="total" colspan="8" scope="row">TOTAL</th>
-            <td class="achieved__total"></td>
-            <td class="goal__total"></td>
-          </tr>
-        </tfoot>
-      </table>
-      <button aria-label="Add" role="button" class="btn" id="btn__create">
-        Create New
-      </button>
-      <button aria-label="Delete" role="button" class="btn" id="btn__delete">
-        Delete
-      </button>
-    </div>
 
-    <footer>
-      <p>
-        Created by
-        <a href="https://chrisazuaje.com/" target="_blank">Chris Azuaje</a>
-      </p>
-    </footer>
+    <div id="body__main">
+      <i class="fa-solid fa-bars" id="sidebar__btn"></i>
+      <div id="main">
+        <table>
+          <caption>
+            <h2 class="main__title">Habit Detective 🕵️‍♀️</h2>
+            <h4 class="sub__title">
+              An online, user-friendly, habit-tracking gizmo
+            </h4>
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Habit List</th>
+              <th scope="col">Mon</th>
+              <th scope="col">Tue</th>
+              <th scope="col">Wed</th>
+              <th scope="col">Thu</th>
+              <th scope="col">Fri</th>
+              <th scope="col">Sat</th>
+              <th scope="col">Sun</th>
+              <th scope="col">Achieved</th>
+              <th scope="col">Goal</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <th id="total" colspan="8" scope="row">TOTAL</th>
+              <td class="achieved__total"></td>
+              <td class="goal__total"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <button aria-label="Add" role="button" class="btn" id="btn__create">
+          Create New
+        </button>
+        <button aria-label="Delete" role="button" class="btn" id="btn__delete">
+          Delete
+        </button>
+      </div>
+
+      <footer>
+        <p>
+          Created by
+          <a href="https://chrisazuaje.com/" target="_blank">Chris Azuaje</a>
+        </p>
+      </footer>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>

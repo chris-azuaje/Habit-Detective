@@ -1,23 +1,26 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', loadHabitsFromLocalStorage);
-
 const addHabitBtn = document.querySelector('#btn__add');
 const createNewBtn = document.querySelector('#btn__create');
 const deleteHabitBtn = document.querySelector('#btn__delete');
 
+document.addEventListener('DOMContentLoaded', loadHabitsFromLocalStorage);
+
 addHabitBtn.addEventListener('click', function () {
   createHabit();
-  document.querySelector('#check').checked = false;
 });
 
 createNewBtn.addEventListener('click', function () {
-  document.querySelector('#check').checked = true;
+  isOpenFunction(true);
 });
 
 deleteHabitBtn.addEventListener('click', function () {
   removeHabit();
 });
+
+// Opening Functions
+isOpenFunction(false);
+markCell();
 
 // Save habits into local storage using JSON
 function saveHabitsToLocalStorage() {
@@ -38,7 +41,7 @@ function saveHabitsToLocalStorage() {
 // Remove habit from array, update localStorage, and delete the related row.
 function removeHabit() {
   let removeHabitName = prompt(
-    'Which habit would you like to remove? Type the name of the habit or "all" to remove all habits at once.'
+    'Select a habit to say goodbye to:\nEnter the name of the habit you wish to remove, or type "all" to clear your slate and start fresh.'
   );
 
   // Getting habits from local storage
@@ -87,9 +90,11 @@ function removeHabit() {
 
 // Take JSON information and create habits from that.
 function loadHabitsFromLocalStorage() {
+  // Get habits from local storage
   const savedHabits = JSON.parse(localStorage.getItem('habits'));
   if (savedHabits) {
     savedHabits.forEach((habit) => {
+      // Each row HTML
       const rowHTML = `<tr>
         <th scope="row">${habit.name}</th>
         ${habit.marks
@@ -99,9 +104,9 @@ function loadHabitsFromLocalStorage() {
         <td class="goal__cell">${habit.goal}</td>
       </tr>`;
 
+      // Insert row HTML to main
       document.querySelector('tbody').insertAdjacentHTML('beforeend', rowHTML);
     });
-
     markCell();
     achievedCell();
     calcTotals();
@@ -117,9 +122,8 @@ function calcTotals() {
     let achievedVal = parseInt(row.querySelector('.achieved__cell').innerText);
     let goalVal = parseInt(row.querySelector('.goal__cell').innerText);
 
-    achievedVal > 0
-      ? (achievedTotal += achievedVal)
-      : (achievedTotal = achievedTotal);
+    achievedTotal += achievedVal;
+    goalTotal += goalVal;
 
     goalVal > 0 ? (goalTotal += goalVal) : (goalTotal = goalTotal);
   });
@@ -132,37 +136,16 @@ calcTotals();
 // Calculate the achieved cells in each row
 function achievedCell() {
   document.querySelectorAll('tbody tr').forEach((row) => {
+    // Count starts at 0
     let count = 0;
+    // Count increases if marked or stays the same if unmarked
     row
       .querySelectorAll('.markableCell')
       .forEach((cell) => (cell.innerHTML !== '' ? count++ : count));
+    // Count is shown in related achieved cell
     row.querySelector('.achieved__cell').innerHTML = `${count}`;
   });
 }
-
-// Mark cells in each row
-function markCell() {
-  let cells = document.querySelectorAll(
-    '.markableCell:not([data-listener="true"])'
-  );
-  cells.forEach(function (cell) {
-    cell.setAttribute('data-listener', 'true');
-    cell.addEventListener('click', function () {
-      if (cell.innerHTML === '') {
-        cell.innerHTML = '✅';
-        achievedCell();
-        calcTotals();
-        saveHabitsToLocalStorage();
-      } else {
-        cell.innerHTML = '';
-        achievedCell();
-        calcTotals();
-        saveHabitsToLocalStorage();
-      }
-    });
-  });
-}
-markCell();
 
 // Create a habit
 function createHabit() {
@@ -174,9 +157,8 @@ function createHabit() {
       .querySelector('tbody')
       .insertAdjacentHTML(
         'beforeend',
-        `<tr><th scope="row">${habitName}</th><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="markableCell"></td><td class="achieved__cell"></td><td class="goal__cell">${habitNum}</td></tr>`
+        `<tr><th scope="row">${habitName}</th><td class="markableCell" ></td><td class="markableCell" ></td><td class="markableCell" ></td><td class="markableCell" ></td><td class="markableCell" ></td><td class="markableCell" ></td><td class="markableCell" ></td><td class="achieved__cell"></td><td class="goal__cell">${habitNum}</td></tr>`
       );
-    markCell();
     achievedCell();
     calcTotals();
     saveHabitsToLocalStorage();
@@ -190,4 +172,63 @@ function clearInputs() {
 
   habitName.value = '';
   habitNum.value = '';
+}
+
+// ---------- Sidebar Functionality ----------
+
+const sidebarExitBtn = document.getElementById('sidebar__exit');
+const sidebarBtn = document.getElementById('sidebar__btn');
+sidebarExitBtn.addEventListener('click', function () {
+  isOpenFunction(false);
+});
+sidebarBtn.addEventListener('click', function () {
+  isOpenFunction(true);
+});
+
+let isSidebarOpen = false;
+
+// Mark cells in each row
+function markCell() {
+  document.querySelectorAll('.markableCell').forEach((cell) => {
+    cell.addEventListener('click', function () {
+      if (!isSidebarOpen) {
+        // Only allow marking if sidebar is not open
+        if (cell.innerHTML === '') {
+          cell.innerHTML = '✅';
+        } else {
+          cell.innerHTML = '';
+        }
+        achievedCell();
+        calcTotals();
+        saveHabitsToLocalStorage();
+      }
+    });
+  });
+}
+
+function isOpenFunction(state) {
+  const bodyMain = document.getElementById('body__main');
+  const sideBar = document.getElementById('sidebar');
+  const sidebarBtn = document.getElementById('sidebar__btn');
+  const createNewBtn = document.getElementById('btn__create');
+  const deleteBtn = document.getElementById('btn__delete');
+
+  let isOpen = state;
+
+  if (isOpen == true) {
+    sideBar.style.marginLeft = '10px';
+    sidebarBtn.style.marginLeft = '-45px';
+    bodyMain.style.opacity = '0.5';
+    createNewBtn.disabled = true;
+    deleteBtn.disabled = true;
+    markCell();
+  }
+  if (isOpen == false) {
+    sideBar.style.marginLeft = '-380px';
+    sidebarBtn.style.marginLeft = '0px';
+    bodyMain.style.opacity = '1';
+    createNewBtn.disabled = false;
+    deleteBtn.disabled = false;
+    markCell();
+  }
 }
