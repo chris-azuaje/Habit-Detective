@@ -124,8 +124,6 @@ function calcTotals() {
 
     achievedTotal += achievedVal;
     goalTotal += goalVal;
-
-    goalVal > 0 ? (goalTotal += goalVal) : (goalTotal = goalTotal);
   });
 
   document.querySelector('.achieved__total').innerHTML = `${achievedTotal}`;
@@ -216,7 +214,7 @@ function isOpenFunction(state) {
   let isOpen = state;
 
   if (isOpen == true) {
-    sideBar.style.marginLeft = '10px';
+    sideBar.style.marginLeft = '15px';
     sidebarBtn.style.marginLeft = '-45px';
     bodyMain.style.opacity = '0.5';
     createNewBtn.disabled = true;
