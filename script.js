@@ -102,7 +102,7 @@ function loadHabitsFromLocalStorage() {
           .join('')}
         <td class="achieved__cell"></td>
         <td class="goal__cell">${habit.goal}</td>
-      </tr>`;
+        </tr>`;
 
       // Insert row HTML to main
       document.querySelector('tbody').insertAdjacentHTML('beforeend', rowHTML);
